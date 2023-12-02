@@ -1,5 +1,5 @@
 requestAnimationFrame('dotenv').config();
-// Set up MySQL connection.
+
 const Sequelize = require('sequelize');
 
 const sequelize = process.env.JAWSDB_URL
