@@ -1,3 +1,4 @@
+const homeRoutes = require('./routes/home-routes.js');
 require("dotenv").config();
 
 //required packages
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //set up routes
 app.use(routes);
+app.use('/', homeRoutes);
 
 //set up sequelize
 sequelize.sync({ force: false }).then(() => {
