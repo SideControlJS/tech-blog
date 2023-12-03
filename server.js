@@ -43,7 +43,7 @@ app.use('/auth', userRoutes);
 
 
 //set up sequelize
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ alter: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });
 
