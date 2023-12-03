@@ -11,7 +11,7 @@ const helpers = require("./utils/helpers");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ helpers });
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3300;
 
 //set up sessions
 const sess = {
@@ -42,6 +42,7 @@ app.use(routes);
 
 //set up sequelize
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, () => console.log(`Now listening on port: ${PORT}`));
 });
+
 
