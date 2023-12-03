@@ -11,15 +11,17 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
-
-        comment_text: {
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        post_text: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1],
             },
         },
-
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -27,21 +29,12 @@ Post.init(
                 key: 'id',
             },
         },
-
-        post_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'post',
-                key: 'id',
-            },
-        },
     },
-
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'comment',
+        modelName: 'post',
     }
 );
 
