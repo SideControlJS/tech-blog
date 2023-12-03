@@ -2,6 +2,7 @@ require("dotenv").config();
 
 //required packages
 const express = require("express");
+const userRoutes = require("./controllers/api/userRoutes");
 const sequelize = require("./config/connection");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -38,6 +39,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //set up routes
 app.use(routes);
+app.use('/auth', userRoutes);
 
 
 //set up sequelize
