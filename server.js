@@ -11,7 +11,7 @@ const helpers = require("./utils/helpers");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ helpers });
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3306;
 
 //set up sessions
 const sess = {
@@ -45,13 +45,3 @@ sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
 
-// Path: controllers/index.js
-const router = require("express").Router();
-const apiRoutes = require("./api");
-const dashboardRoutes = require("./dashboardRoutes");
-
-router.use("/", homeRoutes);
-router.use("/api", apiRoutes);
-router.use("/dashboard", dashboardRoutes);
-
-module.exports = router;
