@@ -1,0 +1,18 @@
+<main class="container mt-5">
+    <h1 class="mb-5 text-white">blog.tech.posts</h1>
+    <div class="row">
+        {{#each posts}}
+        <div class="col-md-5">
+            <div class="card mb-4">
+                <div class="card-header bg-warning">
+                    <h2 class="card-title">
+                        <a href="/post/{{id}}" class="text-dark">{{title}}</a>
+                    </h2>
+                    <div class="card-subtitle text-muted">
+                        <p>Poste Created by: {{user.username}} Date: {{format_date createdAt}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>"
+</main>

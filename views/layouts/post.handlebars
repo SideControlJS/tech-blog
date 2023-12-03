@@ -1,0 +1,23 @@
+<main class="container mt-5">
+    <article>
+        <h1>{{title}}</h1>
+        <p>Created by: {{user.username}} | Date: {{format_date createdAt}}</p>
+        <p>{{content}}</p>
+    </article>
+    {{#if logged_in}}
+    <form class="new-comment-form">
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea class="form-control" id="comment" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {{/if}}
+    <h2>Comments</h2>
+    {{#each comments}}
+        <div class="comment mb-3">
+            <p>{{content}}</p>
+            <p>Created by: {{user.username}} | Date: {{format_date createdAt}}</p>
+        </div>
+    {{/each}}
+</main>

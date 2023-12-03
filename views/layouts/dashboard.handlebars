@@ -1,0 +1,19 @@
+<main class="container mt-5">
+  <div class="row">
+        <h1 class="mb-5">Dashboard</h1>
+        <a href="/newpost" class="btn btn-primary">New Post</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+
+    <h1 class="mb-5">blog.tech.posts:</h1>
+    {{#each posts}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{content}}</p>
+                <a href="/editpost/{{id}}" class="btn btn-primary">Edit</a>
+                <a href="/deletepost/{{id}}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    {{/each}}
+</main>
