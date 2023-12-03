@@ -1,15 +1,14 @@
-const homeRoutes = require('./routes/home-routes.js');
 require("dotenv").config();
 
 //required packages
 const express = require("express");
 const sequelize = require("./config/connection");
+const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const routes = require("./controllers");
 const path = require("path");
 const helpers = require("./utils/helpers");
 const exphbs = require("express-handlebars");
-const session = require("express-session");
 const hbs = exphbs.create({ helpers });
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -39,7 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //set up routes
 app.use(routes);
-app.use('/', homeRoutes);
+
 
 //set up sequelize
 sequelize.sync({ force: false }).then(() => {
@@ -49,7 +48,6 @@ sequelize.sync({ force: false }).then(() => {
 // Path: controllers/index.js
 const router = require("express").Router();
 const apiRoutes = require("./api");
-const homeRoutes = require("./homeRoutes");
 const dashboardRoutes = require("./dashboardRoutes");
 
 router.use("/", homeRoutes);
